@@ -5,12 +5,11 @@
 	required = true
 [user]
 	name = Aaron Kollasch
-	email = aaron@kollasch.dev
-	signingkey = F813CAE853E39883
+	email = aaron.kollasch@basecamp-research.com
 [gpg]
 	program = gpg
 [commit]
-	gpgsign = true
+	gpgsign = false
 [pull]
 	ff = only
 [push]
