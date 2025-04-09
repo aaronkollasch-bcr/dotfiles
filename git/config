@@ -31,7 +31,7 @@
 ; 	cmd = "if command -v nvim &>/dev/null; then nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"; else vimdiff \"$LOCAL\" \"$REMOTE\"; fi"
 [merge]
 	tool = nvimdiff
-	conflictstyle = zdiff3
+	conflictstyle = diff3
 [mergetool]
 	keepBackup = false
 	prompt = false
