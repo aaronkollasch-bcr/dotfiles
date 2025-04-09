@@ -3,8 +3,8 @@ local lsp_zero = require("lsp-zero")
 require("mason").setup({})
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "ts_ls",
-        "eslint",
+        -- "ts_ls",
+        -- "eslint",
         "lua_ls",
         "rust_analyzer",
         "basedpyright",
