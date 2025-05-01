@@ -1,5 +1,9 @@
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+[credential "https://github.com"]
+    username = aaronkollasch-bcr
+[credential "https://gitlab.com"]
+    username = aaron.kollasch
 
 [delta]
 	features = decorations
