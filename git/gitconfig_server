@@ -1,2 +1,6 @@
-[core]
-    pager = less -FX
+; [core]
+;     pager = less -FX
+[credential "https://github.com"]
+	username = aaronkollasch-bcr
+[credential "https://gitlab.com"]
+	username = aaron.kollasch
