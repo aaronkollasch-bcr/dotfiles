@@ -18,7 +18,7 @@ See also:
 ## Installation
 
 ```bash
-git clone https://github.com/aaronkollasch/dotfiles ~/.dotfiles
+git clone https://github.com/aaronkollasch-bcr/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ```
 
