@@ -1,7 +1,3 @@
-[submodule "private"]
-	path = private
-	url = https://github.com/aaronkollasch/dotfiles-private
-	ignore = all
 [submodule "zsh/repos/zsh-autocomplete"]
 	path = zsh/repos/zsh-autocomplete
 	url = https://github.com/aaronkollasch/zsh-autocomplete.git
@@ -23,3 +19,6 @@
 [submodule "zsh/repos/fzf-tab"]
 	path = zsh/repos/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab
+[submodule "private"]
+	path = private
+	url = https://github.com/aaronkollasch-bcr/dotfiles-private.git
