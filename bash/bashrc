@@ -66,3 +66,5 @@ source ~/.iterm2_shell_integration.bash
 
 # bash completion
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+export PATH=$PATH:/Users/aaronkollasch/.runai/bin
+source <(/Users/aaronkollasch/.runai/bin/runai completion bash)
