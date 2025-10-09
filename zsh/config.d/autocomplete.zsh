@@ -171,3 +171,12 @@ fi
 if command -v aws_completer &>/dev/null; then
   complete -C aws_completer aws
 fi
+
+# runai init
+if command -v runai &>/dev/null; then
+  _runai () {
+    source <(runai completion zsh)
+    _runai "$@"
+  }
+  compdef _runai runai
+fi
