@@ -72,3 +72,7 @@ source ~/.iterm2_shell_integration.bash
 
 # bash completion
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+# RunAI init
+export PATH="$PATH:$HOME/.runai/bin"
+source <("$HOME/bin/runai" completion bash)

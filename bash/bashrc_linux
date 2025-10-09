@@ -195,4 +195,8 @@ command -v starship &>/dev/null && eval "$(starship init bash)"
 # Rod init
 command -v rod &>/dev/null && source <(rod env)
 
+# RunAI init
+export PATH="$PATH:$HOME/.runai/bin"
+source <("$HOME/bin/runai" completion bash)
+
 # vim: set filetype=sh :

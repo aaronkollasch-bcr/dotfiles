@@ -186,3 +186,12 @@ if command -v uvx &>/dev/null; then
   }
   compdef _uvx uvx
 fi
+
+# runai init
+if command -v runai &>/dev/null; then
+  _runai () {
+    source <(runai completion zsh)
+    _runai "$@"
+  }
+  compdef _runai runai
+fi
