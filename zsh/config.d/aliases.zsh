@@ -1,3 +1,6 @@
+## Named directories
+[[ -d /cm/shared/workspaces/aaronkollasch ]] && hash -d cm=/cm/shared/workspaces/aaronkollasch
+
 ## Aliases
 export LSCOLORS=ExFxBxDxCxegedabagacad
 _ls_colors () {
