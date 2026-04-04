@@ -1,6 +1,6 @@
 [submodule "private"]
 	path = private
-	url = https://github.com/aaronkollasch/dotfiles-private
+	url = ssh://git@git.kola.sh:2222/aaronkollasch/dotfiles-private.git
 	ignore = all
 [submodule "zsh/repos/zsh-autocomplete"]
 	path = zsh/repos/zsh-autocomplete
