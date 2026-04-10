@@ -103,6 +103,9 @@ return {
         opts = ts_opts,
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
+            vim.opt.foldmethod = "expr"
+            vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.opt.foldlevel = 99
         end,
     },
     { -- show code context in top line(s)
