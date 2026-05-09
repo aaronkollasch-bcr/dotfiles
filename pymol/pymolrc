@@ -1,2 +1,68 @@
+from pymol import cmd, CmdException
+from glob import glob
+
+
+cmd.set_key('CTSH-X', "@~/.pymolrc")
+#cmd.set_key('CTSH-H', "color red, ss h") # Why would I need this?
+# cmd.set_key('CTRL-Q', "set seq_view, on")
+cmd.set_key('F12',"delete sele_polar_conts; hide lines; select br. enabled within 3 of (enabled and polymer.nucleic); show lines, sele; dist sele_polar_conts, (enabled and polymer.protein), (enabled and polymer.nucleic), mode=2; hide labels, sele_polar_conts")
+cmd.extend('loadall', for j in glob.glob("*.pdb"): cmd.load(j) )
+#cmd.extend('seq', lambda x: cmd.do(f'set seq_view, {x}'), x)
+
+cmd.set_key('CTSH-M', 'seleobjs = cmd.get_object_list("all"); cmd.select(f"{seleobjs[0]} and polymer.nucleic"); cmd.set_name("sele", "target"); for obj in seleobjs[1:]: cmd.super("%s and polymer.nucleic" % obj, "target")')
+cmd.set_key('CTSH-[', 'seleobjs = cmd.get_object_list("all"); cmd.select(f"{seleobjs[0]} and polymer.protein"); cmd.set_name("sele", "target"); for obj in seleobjs[1:]: cmd.super("%s and polymer.protein" % obj, "target")')
+
+#Light/rendering effects
+set specular, 0
+set ray_shadow, offset antialias, 2
+set ray_trace_mode, 1
+set ray_trace_disco_factor, 1
+set ray_trace_gain, 0.1
+set power, 0.2
+set ambient, 0.4
+set direct, 0.45
+set cartoon_sampling, 10
+set ray_trace_color, black
+
+#something to consider, matte pymol
+set reflect, 1
+set reflect_power, 0
+#Reflect = 1
+#Reflect_power = -0.1 sunset pymol
+
+#Structure preferences
+set ribbon_width, 8
+set line_width, 2.5
+set cartoon_transparency, 0
+set cartoon_flat_sheets, off
+set valence, off
+
+#Color preferences
+set_color nitrogen = [2 , 118, 253]
+set_color pymol_gray, [51,51,51]
+set_color pymol_black, [34,34,34]
+set_color good_yellow, [250,199,44]
+set_color good_teal, [40,176,193]
+set_color good_green, [170,195,47]
+set_color good_pink, [236,114,164]
+set_color good_peach, [249,145,120]
+set_color good_blue, [68,153,231]
+set_color good_gray, [220, 220, 220]
+set_color good_red, [228, 74, 62]
+set_color light_purple, [177, 156, 217]
+set_color yellow_orange, [255, 170, 51]
+set_color pastel_yellow, [255, 250, 160]
+set_color ipd_blue, [65,150,181]
+set_color ipd_purple, [180,31,133]
+
+set texture_fonts, 1  # https://pymolwiki.org/Seq_view
+cmd.extend("toggle_seq_view_mode", lambda: cmd.set("seq_view", "on") if cmd.get("seq_view") == "off" else cmd.set("seq_view", "off"))
+cmd.set_key('CTRL-Q','toggle_seq_view_mode')
+cmd.set_key('CTSH-R','toggle_residue_chain_mode')
+cmd.set_key('CTSH-n', 'print(cmd.get_fastastr("enabled"))')
+cmd.extend('chainbow', lambda name: cmd.do('util.chainbow("enabled and polymer.protein")'))
+cmd.extend('bfactor', lambda name: cmd.do('spectrum b, red_white_blue, polymer.protein, 30, 90'))
+cmd.extend('save_pic', lambda name: cmd.do("set ray_trace_color, black; set ray_trace_mode, 1; set ambient, 1.0; png ~/Documents/PyMOL/pymol_pics/%s.png, width = 5.5 in , dpi=300, ray=1"%name))
+
 # save fetched PDB files here
-set fetch_path, /Users/aaron/Research/pymol/
+set fetch_path, ~/Documents/PyMOL/fetch_path
