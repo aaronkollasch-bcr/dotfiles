@@ -39,6 +39,7 @@ chpwd_functions+=(__zoxide_hook)
 # Report common issues.
 function __zoxide_doctor() {
     [[ ${_ZO_DOCTOR:-1} -ne 0 ]] || return 0
+    [[ $- == *i* ]] || return 0
     [[ ${chpwd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]] || return 0
 
     _ZO_DOCTOR=0
