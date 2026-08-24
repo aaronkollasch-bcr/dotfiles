@@ -121,6 +121,13 @@ if ! command -v rg &>/dev/null; then
 fi
 command -v op &>/dev/null && source ~/.config/op/plugins.sh
 
+wait_proc () {
+    # wait for PID $1 to finish
+    while kill -0 "$1" 2>/dev/null; do
+        sleep 1
+    done
+}
+
 source ~/.dotfiles/zsh/config.d/git.aliases.zsh
 
 # Enable zmv
