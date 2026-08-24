@@ -195,3 +195,12 @@ if command -v runai &>/dev/null; then
   }
   compdef _runai runai
 fi
+
+# bk init
+if command -v bk &>/dev/null; then
+  _bk () {
+    source <(bk --show-completion)
+    _bk "$@"
+  }
+  compdef _bk bk
+fi
