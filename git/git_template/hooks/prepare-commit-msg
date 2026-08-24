@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Get the current branch name
+NAME="$(git symbolic-ref HEAD)"
+
+# Extract ticket ID (e.g., PROJ-123) from branch name
+# Adjust the regex [A-Z]+-[0-9]+ to match your ticket format
+TICKET=$(echo "$NAME" | grep -oE "[A-Z]+-[0-9]+")
+
+# get first line of current commit message
+read -r first_line < "$1"
+
+# If a ticket was found, prepend it to the commit message
+if [ -n "$TICKET" ] && [ -z "${first_line}" ]; then
+  # $1 is the temporary commit message file
+  sed -i.bak "1s/^/feat($TICKET): \n/" "$1"
+fi
