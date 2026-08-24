@@ -55,6 +55,9 @@ function nohist {
 # Starship init
 command -v zoxide &>/dev/null && eval "$(starship init bash)"
 
+# Rod init
+command -v rod &>/dev/null && source <(rod env)
+
 # zoxide init
 if command -v zoxide &>/dev/null; then
     eval "$(zoxide init bash --cmd j)"

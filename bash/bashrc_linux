@@ -192,4 +192,7 @@ function nohist {
 # Starship init
 command -v starship &>/dev/null && eval "$(starship init bash)"
 
+# Rod init
+command -v rod &>/dev/null && source <(rod env)
+
 # vim: set filetype=sh :
