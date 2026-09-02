@@ -23,7 +23,7 @@ fi
 set -x
 # shellcheck disable=SC2016
 mapfile -t submodules < <(git submodule foreach --quiet 'echo "-E";echo "$name"')
-submodules+=(-E "mac/alfred/Alfred.alfredpreferences" -E "mac/Application Support/Bartender")
+submodules+=(-E "mac/alfred/Alfred.alfredpreferences" -E "mac/Application Support/Bartender" -E "claude/hooks/wordswap.sh")
 mapfile -t -O "${#files}" files < <("$FDFIND" "." "." "${submodules[@]}" --type f --exec awk 'FNR == 1 && ( FILENAME ~ /.*(\.sh|\.bash|\.dash|\.ksh)$/ || FILENAME ~ /(bash_|bashrc).*/ || /^(#!.*[\/ ](sh|bash|dash|ksh)|# shellcheck)/){print FILENAME}' | sort)
 set +x
 
