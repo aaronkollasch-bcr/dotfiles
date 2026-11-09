@@ -204,3 +204,12 @@ if command -v bk &>/dev/null; then
   }
   compdef _bk bk
 fi
+
+# glab init
+if command -v glab &>/dev/null; then
+  _glab () {
+    source <(glab completion -s zsh)
+    _glab "$@"
+  }
+  compdef _glab glab
+fi
