@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Get the current branch name
-NAME="$(git symbolic-ref HEAD)"
+NAME="$(git symbolic-ref -q HEAD)" || exit 0
 
 # Extract ticket ID (e.g., PROJ-123) from branch name
 # Adjust the regex [A-Z]+-[0-9]+ to match your ticket format
