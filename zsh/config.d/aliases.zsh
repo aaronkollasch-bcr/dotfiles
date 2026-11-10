@@ -82,6 +82,7 @@ fi
 alias nohist="unsetopt history"
 alias history_clear="history -p"
 alias fix='reset; stty sane; tput rs1; clear; echo -e "\033c"'
+alias fixssh='eval $(tmux show-env -s | grep "^SSH_")'
 alias twork='tmux attach -t work'
 if command -v pstree &>/dev/null; then
     pstree () {
